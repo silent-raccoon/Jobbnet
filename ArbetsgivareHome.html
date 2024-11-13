@@ -1,0 +1,502 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+    <head>
+        <!-- meta data -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+        <!--font-family-->
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        
+        <!-- title of site -->
+        <title>Jobb.net</title>
+
+        <!-- For favicon png -->
+		<link rel="shortcut icon" type="image/icon" href="assets/logo/favicon.png"/>
+       
+        <!--font-awesome.min.css-->
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+        <!--linear icon css-->
+		<link rel="stylesheet" href="assets/css/linearicons.css">
+
+		<!--animate.css-->
+        <link rel="stylesheet" href="assets/css/animate.css">
+
+		<!--flaticon.css-->
+        <link rel="stylesheet" href="assets/css/flaticon.css">
+
+		<!--slick.css-->
+        <link rel="stylesheet" href="assets/css/slick.css">
+		<link rel="stylesheet" href="assets/css/slick-theme.css">
+		
+        <!--bootstrap.min.css-->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		
+		<!-- bootsnav -->
+		<link rel="stylesheet" href="assets/css/bootsnav.css" >	
+        
+        <!--style.css-->
+        <link rel="stylesheet" href="assets/css/style.css">
+        
+        <!--responsive.css-->
+        <link rel="stylesheet" href="assets/css/responsive.css">
+        
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		
+        <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+	
+	<body>
+		<!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+		
+		
+		
+		
+		
+		<!--  Här startar vi  -->
+		
+		
+		
+		
+		
+		
+<!--header-top start -->		
+<!--header-top start -->		
+<!--header-top start -->		
+<!--header-top start -->
+<header id="header-top" class="header-top">
+    <ul>
+        <li>
+            <div class="header-top-left">
+                <ul>
+                    <li class="select-opt">
+                        <select name="language" id="language">
+                            <option value="default">Se</option>
+                            <option value="Bangla">Eng</option>
+                            <option value="Arabic">AR</option>
+                        </select>
+                    </li>
+                    <li class="select-opt">
+                        <select name="currency" id="currency" onchange="navigateToPage()">
+                            <option value="default" disabled selected>Arbetsgivare</option>
+                            <option value="home.html">Privat</option>
+                            <option value="ArbetsgivareHome.html">Arbetsgivare</option>
+							<option value="test.html">Test</option>
+                        </select>
+                    </li>
+                    <li class="select-opt">
+                        <a href="#"><span class="lnr lnr-magnifier"></span></a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="head-responsive-right pull-right">
+            <div class="header-top-right">
+                <ul>
+                    <li class="header-top-contact">
+                        +46 793499229
+                    </li>
+                    <li class="header-top-contact">
+                        <a href="#">Logga in</a>
+                    </li>
+                    <li class="header-top-contact">
+                        <a href="#" onclick="openModal()">Bli medlem</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</header>
+<!--/.header-top-->
+<!--header-top start -->
+<!--header-top start -->
+<!--header-top start -->
+
+
+
+
+
+
+
+
+<!-- Modal-rutan för "Bli medlem" -->
+<div id="modal" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Logga in</h2>
+        <form>
+            <label for="email">E-post</label>
+            <input type="email" id="email" placeholder="Ange din e-post" required>
+            <label for="password">Lösenord</label>
+            <input type="password" id="password" placeholder="Ange ditt lösenord" required>
+            <button type="submit">Logga in</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- CSS för modal-rutan -->
+<style>
+    /* Modal overlay */
+    .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 1000;
+    }
+
+    /* Modal content */
+    .modal-content {
+        position: relative;
+        width: 300px;
+        margin: 15% auto;
+        padding: 20px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        text-align: center;
+    }
+
+    /* Close button */
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    /* Input styles */
+    input[type="email"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    /* Button style */
+    button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+</style>
+
+<!-- JavaScript för att öppna/stänga modal-rutan och navigera mellan sidor -->
+<script>
+    function openModal() {
+        document.getElementById("modal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("modal").style.display = "none";
+    }
+
+    function navigateToPage() {
+        const select = document.getElementById("currency");
+        const selectedValue = select.value;
+
+        // Navigera till sidan om ett giltigt alternativ är valt
+        if (selectedValue && selectedValue !== "default") {
+            window.location.href = selectedValue;
+        }
+    }
+</script>
+
+
+<script>
+    function navigateToPage() {
+        const select = document.getElementById("currency");
+        const selectedValue = select.value;
+
+        // Navigera till sidan om ett giltigt alternativ är valt
+        if (selectedValue && selectedValue !== "default") {
+            window.location.href = selectedValue;
+        }
+    }
+</script>
+
+		<!-- top-area Start -->
+		<section class="top-area">
+			<div class="header-area">
+				<!-- Start Navigation -->
+			    <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy"  data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
+
+			        <div class="container">
+
+			            <!-- Start Header Navigation -->
+			            <div class="navbar-header">
+			                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+			                    <i class="fa fa-bars"></i>
+			                </button>
+			                <a class="navbar-brand" href="home.html">Jobb<span>.net</span></a>
+
+			            </div><!--/.navbar-header-->
+			            <!-- End Header Navigation -->
+
+			            <!-- Collect the nav links, forms, and other content for toggling -->
+			            <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
+			                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+			                    <li class=" scroll active"><a href="#home">Hem</a></li>
+								
+			                    <li class="scroll"><a href="#works">Utforska</a></li>
+			                    <li class="scroll"><a href="#reviews">kundomdöme</a></li>
+			                    <li class="scroll"><a href="#blog">blog</a></li>
+			                    <li class="scroll"><a href="#contact">Kontakt</a></li>
+							
+								
+			                </ul><!--/.nav -->
+			            </div><!-- /.navbar-collapse -->
+			        </div><!--/.container-->
+			    </nav><!--/nav-->
+			    <!-- End Navigation -->
+			</div><!--/.header-area-->
+		    <div class="clearfix"></div>
+
+		</section><!-- /.top-area-->
+		<!-- top-area End -->
+
+		<!--welcome-hero start -->
+		<section id="home" class="welcome-hero">
+			<div class="container">
+				<div class="welcome-hero-txt">
+					<h2>Hitta rätt kandidater <br> snabbt och enkelt med jobb<span style="color: red;">.net</span></h2>
+
+					<p>
+						För Arbetsgivare
+					</p>
+				</div>
+				
+			</div>
+
+		</section><!--/.welcome-hero-->
+		<!--welcome-hero end -->
+
+		
+		
+		
+		
+		
+		<!--/.Menu eller NAV -->
+		
+		
+		
+		
+		<!--/.Menu eller NAV -->
+		
+		
+		
+				 
+		<!--/.Menu eller NAV -->
+		
+		
+		
+		
+		
+		
+		<!--list-topics end-->
+
+
+	
+
+
+		<!--blog start -->
+		<section id="blog" class="blog" >
+			<div class="container">
+				<div class="section-header">
+					<h2>Rekryteringstjänster för Företag</h2>
+					<p>Ge ert företag ett försprång: välj rätt nivå för att nå ut, från enkel annons-publicering till visuell profilering och en komplett onlineplattform som attraherar de bästa kandidaterna. </p>
+				</div><!--/.section-header-->
+				<div class="blog-content">
+					<div class="row">
+						<div class="col-md-4 col-sm-6">
+							<div class="single-blog-item">
+								<div class="single-blog-item-img">
+									<img src="assets/images/blog/AB11.png" alt="blog image">
+								</div>
+								<div class="single-blog-item-txt">
+									<h2><a href="#">Annons-publicering</a></h2>
+									<h4> <span></span> <a href="#">Basic</a> Online</h4>
+									<p>
+										Skapa rätt intryck från start. Ladda upp er egen annons
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-6">
+							<div class="single-blog-item">
+								<div class="single-blog-item-img">
+									<img src="assets/images/blog/AB22.png" alt="blog image">
+								</div>
+								<div class="single-blog-item-txt">
+									<h2><a href="#">Fotografering och Drönare</a></h2>
+									<h4><span></span> <a href="#">Standard</a> Göteborg</h4>
+									<p>
+										Visa upp er arbetsplats från dess bästa sida med professionell fotografering och drönarbilder.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-6">
+							<div class="single-blog-item">
+								<div class="single-blog-item-img">
+									<img src="assets/images/blog/AB33.png" alt="blog image">
+								</div>
+								<div class="single-blog-item-txt">
+									<h2><a href="#">Hemsida och Webbhotell</a></h2>
+									<h4><span></span> <a href="#">Plus</a> Online</h4>
+									<p>
+										Presentera er verksamhet online med en skräddarsydd hemsida och tillgång till webbhotell
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!--/.container-->
+			
+		</section><!--/.blog-->
+		<!--blog end -->
+
+		<!--subscription strat -->
+		<section id="contact"  class="subscription">
+			<div class="container">
+				<div class="subscribe-title text-center">
+					<h2>
+						Kontakta oss! 
+					</h2>
+					<p>
+						Jobb.net erbjuder dig möjligheten att lista ditt företag hos oss, vilket gör att vi kan marknadsföra ditt företag på ett effektivt sätt.
+					</p>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="subscription-input-group">
+							<form action="#">
+								<input type="email" class="subscription-input-form" placeholder="Epost">
+								<button class="appsLand-btn subscribe-btn" onclick="window.location.href='#'">
+									skicka
+								</button>
+							</form>
+						</div>
+					</div>	
+				</div>
+			</div>
+
+		</section><!--/subscription-->	
+		<!--subscription end -->
+
+		<!--footer start-->
+		<footer id="footer"  class="footer">
+			<div class="container">
+				<div class="footer-menu">
+		           	<div class="row">
+			           	<div class="col-sm-3">
+			           		 <div class="navbar-header">
+				                <a class="navbar-brand" href="home.html">Jobb<span>.net</span></a>
+				            </div><!--/.navbar-header-->
+			           	</div>
+			           	<div class="col-sm-9">
+			           		<ul class="footer-menu-item">
+			                    <li class="scroll"><a href="#works">Hem</a></li>
+			                    <li class="scroll"><a href="#explore">Utforska</a></li>
+			                    <li class="scroll"><a href="#reviews">kundomdöme</a></li>
+			                    <li class="scroll"><a href="#blog">blog</a></li>
+			                    <li class="scroll"><a href="#contact">Kontakt</a></li>
+			                    <li class=" scroll"><a href="#contact">Mitt konto</a></li>
+			                </ul><!--/.nav -->
+			           	</div>
+		           </div>
+				</div>
+				<div class="hm-footer-copyright">
+					<div class="row">
+						<div class="col-sm-5">
+							<p>
+								 <a href="https://www.linkedin.com/in/michel-dahl-203832318/">&copy;copyright. designed and developed by Michel D</a>
+							</p><!--/p-->
+						</div>
+						<div class="col-sm-7">
+							<div class="footer-social">
+								<span><i class="fa fa-phone"> + 46 793 499 229</i></span>
+								<a href=""><i class="fa fa-facebook"></i></a>	
+								<a href=""><i class="fa fa-twitter"></i></a>
+								<a href="https://www.linkedin.com/in/michel-dahl-203832318/" target="_blank"><i class="fa fa-linkedin"></i></a>
+								<a href="https://www.google.se" target="_blank"><i class="fa fa-google-plus"></i></a>
+							</div>
+						</div>
+					</div>
+					
+				</div><!--/.hm-footer-copyright-->
+			</div><!--/.container-->
+
+			<div id="scroll-Top">
+				<div class="return-to-top">
+					<i class="fa fa-angle-up " id="scroll-top" data-toggle="tooltip" data-placement="top" title="" data-original-title="Back to Top" aria-hidden="true"></i>
+				</div>
+				
+			</div><!--/.scroll-Top-->
+			
+        </footer><!--/.footer-->
+		<!--footer end-->
+		
+		<!-- Include all js compiled plugins (below), or include individual files as needed -->
+
+		<script src="assets/js/jquery.js"></script>
+        
+        <!--modernizr.min.js-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+		
+		<!--bootstrap.min.js-->
+        <script src="assets/js/bootstrap.min.js"></script>
+		
+		<!-- bootsnav js -->
+		<script src="assets/js/bootsnav.js"></script>
+
+        <!--feather.min.js-->
+        <script  src="assets/js/feather.min.js"></script>
+
+        <!-- counter js -->
+		<script src="assets/js/jquery.counterup.min.js"></script>
+		<script src="assets/js/waypoints.min.js"></script>
+
+        <!--slick.min.js-->
+        <script src="assets/js/slick.min.js"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+		     
+        <!--Custom JS-->
+        <script src="assets/js/custom.js"></script>
+        
+    </body>
+	
+</html>

@@ -1,0 +1,1359 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+    <head>
+        <!-- meta data -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+        <!--font-family-->
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        
+        <!-- title of site -->
+        <title>Jobb.net</title>
+
+        <!-- For favicon png -->
+		<link rel="shortcut icon" type="image/icon" href="assets/logo/favicon.png"/>
+       
+        <!--font-awesome.min.css-->
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+        <!--linear icon css-->
+		<link rel="stylesheet" href="assets/css/linearicons.css">
+
+		<!--animate.css-->
+        <link rel="stylesheet" href="assets/css/animate.css">
+
+		<!--flaticon.css-->
+        <link rel="stylesheet" href="assets/css/flaticon.css">
+
+		<!--slick.css-->
+        <link rel="stylesheet" href="assets/css/slick.css">
+		<link rel="stylesheet" href="assets/css/slick-theme.css">
+		
+        <!--bootstrap.min.css-->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		
+		<!-- bootsnav -->
+		<link rel="stylesheet" href="assets/css/bootsnav.css" >	
+        
+        <!--style.css-->
+        <link rel="stylesheet" href="assets/css/style.css">
+        
+        <!--responsive.css-->
+        <link rel="stylesheet" href="assets/css/responsive.css">
+        
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		
+        <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+	
+	<body>
+		<!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+		
+<!--header-top start -->
+<header id="header-top" class="header-top">
+    <ul>
+        <li>
+            <div class="header-top-left">
+                <ul>
+                    <li class="select-opt">
+                        <select name="language" id="language">
+                            <option value="default">Se</option>
+                            <option value="Bangla">Eng</option>
+                            <option value="Arabic">AR</option>
+                        </select>
+                    </li>
+                    <li class="select-opt">
+                        <select name="currency" id="currency" onchange="navigateToPage()">
+                            <option value="default" disabled selected>Privat</option>
+                            <option value="home.html">Privat</option>
+                            <option value="ArbetsgivareHome.html">Arbetsgivare</option>
+							<option value="test.html">test</option>
+                        </select>
+                    </li>
+                    <li class="select-opt">
+                        <a href="#"><span class="lnr lnr-magnifier"></span></a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="head-responsive-right pull-right">
+            <div class="header-top-right">
+                <ul>
+                    <li class="header-top-contact">
+                        +46 793499229
+                    </li>
+                    <li class="header-top-contact">
+                        <a href="#">Logga in</a>
+                    </li>
+                    <li class="header-top-contact">
+                        <a href="#" onclick="openModal()">Bli medlem</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</header><!--/.header-top-->
+
+<!-- Modal-rutan för "Bli medlem" -->
+<div id="modal" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Logga in</h2>
+        <form>
+            <label for="email">E-post</label>
+            <input type="email" id="email" placeholder="Ange din e-post" required>
+            <label for="password">Lösenord</label>
+            <input type="password" id="password" placeholder="Ange ditt lösenord" required>
+            <button type="submit">Logga in</button>
+        </form>
+    </div>
+</div>
+
+<!-- CSS för modal-rutan -->
+<style>
+    /* Modal overlay */
+    .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 1000;
+    }
+
+    /* Modal content */
+    .modal-content {
+        position: relative;
+        width: 300px;
+        margin: 15% auto;
+        padding: 20px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        text-align: center;
+    }
+
+    /* Close button */
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    /* Input styles */
+    input[type="email"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    /* Button style */
+    button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+</style>
+
+<!-- JavaScript för att öppna/stänga modal-rutan och navigera mellan sidor -->
+<script>
+    function openModal() {
+        document.getElementById("modal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("modal").style.display = "none";
+    }
+
+    function navigateToPage() {
+        const select = document.getElementById("currency");
+        const selectedValue = select.value;
+
+        // Navigera till sidan om ett giltigt alternativ är valt
+        if (selectedValue && selectedValue !== "default") {
+            window.location.href = selectedValue;
+        }
+    }
+</script>
+
+
+<script>
+    function navigateToPage() {
+        const select = document.getElementById("currency");
+        const selectedValue = select.value;
+
+        // Navigera till sidan om ett giltigt alternativ är valt
+        if (selectedValue && selectedValue !== "default") {
+            window.location.href = selectedValue;
+        }
+    }
+</script>
+
+		<!-- top-area Start -->
+		<section class="top-area">
+			<div class="header-area">
+				<!-- Start Navigation -->
+			    <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy"  data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
+
+			        <div class="container">
+
+			            <!-- Start Header Navigation -->
+			            <div class="navbar-header">
+			                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+			                    <i class="fa fa-bars"></i>
+			                </button>
+			                <a class="navbar-brand" href="home.html">Jobb<span>.net</span></a>
+
+			            </div><!--/.navbar-header-->
+			            <!-- End Header Navigation -->
+
+			            <!-- Collect the nav links, forms, and other content for toggling -->
+			            <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
+			                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+			                    <li class=" scroll active"><a href="#home">Hem</a></li>
+								
+			                    <li class="scroll"><a href="#works">Utforska</a></li>
+			                    <li class="scroll"><a href="#reviews">kundomdöme</a></li>
+			                    <li class="scroll"><a href="#blog">Utbildningar</a></li>
+			                    <li class="scroll"><a href="#contact">Kontakt</a></li>
+							
+								
+			                </ul><!--/.nav -->
+			            </div><!-- /.navbar-collapse -->
+			        </div><!--/.container-->
+			    </nav><!--/nav-->
+			    <!-- End Navigation -->
+			</div><!--/.header-area-->
+		    <div class="clearfix"></div>
+
+		</section><!-- /.top-area-->
+		<!-- top-area End -->
+
+		<!--welcome-hero start -->
+		<section id="home" class="welcome-hero">
+			<div class="container">
+				<div class="welcome-hero-txt">
+					<h2>Hitta ditt framtida yrke <br> Med oss på jobb<span style="color: red;">.net</span></h2>
+
+					<p>
+						För både arbetssökande och arbetsgivare
+					</p>
+				</div>
+				<div class="welcome-hero-serch-box">
+					<div class="welcome-hero-form">
+						<div class="single-welcome-hero-form">
+							<h3>Jobbtitel,</h3>
+							<form action="home.html">
+								<input type="text" placeholder="Yrken eller företag" />
+							</form>
+							<div class="welcome-hero-form-icon">
+								<i class="flaticon-list-with-dots"></i>
+							</div>
+						</div>
+						<div class="single-welcome-hero-form">
+							<h3>Plats</h3>
+							<form action="home.html">
+								<input type="text" placeholder="Ex: Göteborg, Stholm, Malmö" />
+							</form>
+							<div class="welcome-hero-form-icon">
+								<i class="flaticon-gps-fixed-indicator"></i>
+							</div>
+						</div>
+					</div>
+					<div class="welcome-hero-serch">
+						<button class="welcome-hero-btn" onclick="window.location.href='#'">
+							 sök  <i data-feather="search"></i> 
+						</button>
+					</div>
+				</div>
+			</div>
+
+		</section><!--/.welcome-hero-->
+		
+		
+		
+		
+		<!--welcome-hero end -->
+
+
+
+
+
+
+
+
+
+		<!--list-topics start -->
+		<section id="list-topics" class="list-topics">
+			<div class="container">
+				<div class="list-topics-content">
+					<ul>
+						<li>
+							<div class="single-list-topics-content">
+								<div class="single-list-topics-icon">
+									<i class="flaticon-restaurant"></i>
+								</div>
+								<h2><a href="#GBG">Restaurang</a></h2>
+								<p>150 jobb</p>
+							</div>
+						</li>
+						
+						
+						
+						
+					<!--TEST KNAPP TILL MAPS-->
+						
+						
+						
+						
+<li>
+    <div class="single-list-topics-content">
+        <div class="single-list-topics-icon">
+            <i class="flaticon-travel"></i>
+        </div>
+        <h2><a href="#GBG" onclick="fyllIRuta('Hantverkare jobb')">Hantverkare</a></h2>
+        <p>214 jobb</p>
+    </div>
+</li>
+					
+						
+						
+						
+						
+						<!--TEST KNAPP TILL MAPS-->
+						
+						
+						
+						
+						
+						
+						<li>
+							<div class="single-list-topics-content">
+								<div class="single-list-topics-icon">
+									<i class="flaticon-building"></i>
+								</div>
+								<h2><a href="#GBG">IT</a></h2>
+								<p>185 jobb</p>
+							</div>
+						</li>
+						<li>
+							<div class="single-list-topics-content">
+								<div class="single-list-topics-icon">
+									<i class="flaticon-pills"></i>
+								</div>
+								<h2><a href="#GBG">Sjukvård</a></h2>
+								<p>200 jobb</p>
+							</div>
+						</li>
+						<li>
+							<div class="single-list-topics-content">
+								<div class="single-list-topics-icon">
+									<i class="flaticon-transport"></i>
+								</div>
+								<h2><a href="#GBG">transport</a></h2>
+								<p>120 jobb</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div><!--/.container-->
+
+		</section><!--/.list-topics-->
+		
+<section id="GBG">
+    <img src="https://i.imgur.com/GKXhUXD.jpeg" style="display: block; margin: auto;">
+</section>
+		
+		
+		
+		
+		
+		
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<!--list-topics end-->
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+		<!--works start -->
+		<section id="works" class="works">
+			<div class="container">
+				<div class="section-header">
+					<h2>Hur fungerar det?</h2>
+					<p>Vår matchnings-AI och jobbkarta förenklar ditt jobbsökande</p>
+				</div><!--/.section-header-->
+				<div class="works-content">
+					<div class="row">
+						<div class="col-md-4 col-sm-6">
+							<div class="single-how-works">
+								<div class="single-how-works-icon">
+									<i class="flaticon-lightbulb-idea"></i>
+								</div>
+								<h2><a href="#">skapa <span> ett</span> konto</a></h2>
+								<p>
+									skapa ett konto eller logga in med BankID
+								</p>
+								<button class="welcome-hero-btn how-work-btn" onclick="window.location.href='#'">
+									lös mer
+								</button>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-6">
+							<div class="single-how-works">
+								<div class="single-how-works-icon">
+									<i class="flaticon-networking"></i>
+								</div>
+								<h2><a href="#">AI <span> inlärning</span></a></h2>
+								<p>
+									Vår AI kommer att förbätta jobbskökandet och matcha dig med olika arbetsgiavre
+								</p>
+								<button class="welcome-hero-btn how-work-btn" onclick="window.location.href='#'">
+									läs mer
+								</button>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-6">
+							<div class="single-how-works">
+								<div class="single-how-works-icon">
+									<i class="flaticon-location-on-road"></i>
+								</div>
+								<h2><a href="#">Hitta jobb  <span> nära dig </span> </a></h2>
+								<p>
+									Använd vår jobbkarta för att enkelt söka de närmaste jobben
+								</p>
+								<button class="welcome-hero-btn how-work-btn" onclick="window.location.href='#'">
+									läs mer
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!--/.container-->
+		
+		</section><!--/.works-->
+		<!--works end -->
+
+		<!--explore start -->
+		<section id="explore" class="explore">
+			<div class="container">
+				<div class="section-header">
+					<h2>AI Utforskaren</h2>
+					<h>Automatisk Jobbmatchning med AI</h>
+					
+					<p>Med vår AI-jobbsökare söker vi dagligen efter liknande jobb och matchar dem mot ditt CV för att ge dig de bästa möjligheterna.</p>
+				</div><!--/.section-header-->
+				<div class="explore-content">
+					<div class="row">
+						<div class=" col-md-4 col-sm-6">
+							<div class="single-explore-item">
+								<div class="single-explore-img">
+									<img src="assets/images/explore/f1.png" alt="explore image">
+									<div class="single-explore-img-info">
+										<button onclick="window.location.href='#'">best rated</button>
+										<div class="single-explore-image-icon-box">
+											<ul>
+												<li>
+													<div class="single-explore-image-icon">
+														<i class="fa fa-arrows-alt"></i>
+													</div>
+												</li>
+												<li>
+													<div class="single-explore-image-icon">
+														<i class="fa fa-bookmark-o"></i>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="single-explore-txt bg-theme-1">
+									<h2><a href="#">Kock till clarion hotel</a></h2>
+									<p class="explore-rating-price">
+									
+										<a href="#">  Kock </a> 
+										<span class="explore-price-box">
+											form
+											<span class="explore-price">Heltid</span>
+										</span>
+										 <a href="#">Resturang</a>
+									</p>
+									<div class="explore-person">
+										<div class="row">
+											<div class="col-sm-2">
+												<div class="explore-person-img">
+													<a href="#">
+														<img src="assets/images/explore/person.png" alt="explore person">
+													</a>
+												</div>
+											</div>
+											<div class="col-sm-10">
+												<p>
+													Vi söker en kock med passion för matlagning och erfarenhet i köket. Bli en del av vårt team!
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="explore-open-close-part">
+										<div class="row">
+											<div class="col-sm-5">
+												<button class="close-btn" onclick="window.location.href='https://www.google.se'">Besök</button>
+
+											</div>
+											<div class="col-sm-7">
+												<div class="explore-map-icon">
+													<a href="#"><i data-feather="map-pin"></i></a>
+													<a href="#"><i data-feather="upload"></i></a>
+													<a href="#"><i data-feather="heart"></i></a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-6">
+							<div class="single-explore-item">
+								<div class="single-explore-img">
+									<img src="assets/images/explore/f7.png" alt="explore image">
+									<div class="single-explore-img-info">
+										<button onclick="window.location.href='#'">featured</button>
+										<div class="single-explore-image-icon-box">
+											<ul>
+												<li>
+													<div class="single-explore-image-icon">
+														<i class="fa fa-arrows-alt"></i>
+													</div>
+												</li>
+												<li>
+													<div class="single-explore-image-icon">
+														<i class="fa fa-bookmark-o"></i>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="single-explore-txt bg-theme-2">
+									<h2><a href="#">Lastbilsförare C</a></h2>
+									<p class="explore-rating-price">
+									
+										<a href="#"> personal</a> 
+										<span class="explore-price-box">
+											form
+											<span class="explore-price">7:00 - 16:00</span>
+										</span>
+										 <a href="#">ICA</a>
+									</p>
+									<div class="explore-person">
+										<div class="row">
+											<div class="col-sm-2">
+												<div class="explore-person-img">
+													<a href="#">
+														<img src="assets/images/explore/person.png" alt="explore person">
+													</a>
+												</div>
+											</div>
+											<div class="col-sm-10">
+												<p>
+													Tusentals studenter och unga inleder sina karriärer hos oss varje år – är det din tur nu?
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="explore-open-close-part">
+										<div class="row">
+											<div class="col-sm-5">
+												<button class="close-btn" onclick="window.location.href='#'">Besök</button>
+											</div>
+											<div class="col-sm-7">
+												<div class="explore-map-icon">
+													<a href="#"><i data-feather="map-pin"></i></a>
+													<a href="#"><i data-feather="upload"></i></a>
+													<a href="#"><i data-feather="heart"></i></a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-6">
+							<div class="single-explore-item">
+								<div class="single-explore-img">
+									<img src="assets/images/explore/f3.png" alt="explore image">
+									<div class="single-explore-img-info">
+										<button onclick="window.location.href='#'">best rated</button>
+										<div class="single-explore-image-icon-box">
+											<ul>
+												<li>
+													<div class="single-explore-image-icon">
+														<i class="fa fa-arrows-alt"></i>
+													</div>
+												</li>
+												<li>
+													<div class="single-explore-image-icon">
+														<i class="fa fa-bookmark-o"></i>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="single-explore-txt bg-theme-3">
+									<h2><a href="#">Lagerarbetare</a></h2>
+									<p class="explore-rating-price">
+										<span class="explore-rating">Lager</span>
+										<a href="#"> </a> 
+										<span class="explore-price-box">
+											form
+											<span class="explore-price">22:00 - 06:00</span>
+										</span>
+										 <a href="#">Lager</a>
+									</p>
+									<div class="explore-person">
+										<div class="row">
+											<div class="col-sm-2">
+												<div class="explore-person-img">
+													<a href="#">
+														<img src="assets/images/explore/person.png" alt="explore person">
+													</a>
+												</div>
+											</div>
+											<div class="col-sm-10">
+												<p>
+													Har du god fysik och gillar att jobba natt? Plock och packning ingår. Ansök nu och bli en del av vårt team!
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="explore-open-close-part">
+										<div class="row">
+											<div class="col-sm-5">
+												<button class="close-btn" onclick="window.location.href='#'">Besök</button>
+												
+											</div>
+											<div class="col-sm-7">
+												<div class="explore-map-icon">
+													<a href="#"><i data-feather="map-pin"></i></a>
+													<a href="#"><i data-feather="upload"></i></a>
+													<a href="#"><i data-feather="heart"></i></a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class=" col-md-4 col-sm-6">
+							<div class="single-explore-item">
+								<div class="single-explore-img">
+									<img src="assets/images/explore/f4.png" alt="explore image">
+									<div class="single-explore-img-info">
+										<button onclick="window.location.href='#'">most view</button>
+										<div class="single-explore-image-icon-box">
+											<ul>
+												<li>
+													<div class="single-explore-image-icon">
+														<i class="fa fa-arrows-alt"></i>
+													</div>
+												</li>
+												<li>
+													<div class="single-explore-image-icon">
+														<i class="fa fa-bookmark-o"></i>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="single-explore-txt bg-theme-4">
+									<h2><a href="#">Marknads chef</a></h2>
+									<p class="explore-rating-price">
+									
+										<a href="#">HR-chef</a> 
+										<span class="explore-price-box">
+											form
+											<span class="explore-price">9:00-18:00</span>
+										</span>
+										 <a href="#">HR</a>
+									</p>
+									<div class="explore-person">
+										<div class="row">
+											<div class="col-sm-2">
+												<div class="explore-person-img">
+													<a href="#">
+														<img src="assets/images/explore/person.png" alt="explore person">
+													</a>
+												</div>
+											</div>
+											<div class="col-sm-10">
+												<p>
+													Vi söker en driven och erfaren chef! Ta ledarskap hos
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="explore-open-close-part">
+										<div class="row">
+											<div class="col-sm-5">
+												<button class="close-btn" onclick="window.location.href='#'">Besök</button>
+											</div>
+											<div class="col-sm-7">
+												<div class="explore-map-icon">
+													<a href="#"><i data-feather="map-pin"></i></a>
+													<a href="#"><i data-feather="upload"></i></a>
+													<a href="#"><i data-feather="heart"></i></a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-6">
+							<div class="single-explore-item">
+								<div class="single-explore-img">
+									<img src="assets/images/explore/f5.png" alt="explore image">
+									<div class="single-explore-img-info">
+										<button onclick="window.location.href='#'">featured</button>
+										<div class="single-explore-image-icon-box">
+											<ul>
+												<li>
+													<div class="single-explore-image-icon">
+														<i class="fa fa-arrows-alt"></i>
+													</div>
+												</li>
+												<li>
+													<div class="single-explore-image-icon">
+														<i class="fa fa-bookmark-o"></i>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="single-explore-txt bg-theme-2">
+									<h2><a href="#">Karriär på SCA</a></h2>
+									<p class="explore-rating-price">
+										
+										<a href="#"> 3 tjänster</a> 
+										<span class="explore-price-box">
+											form
+											<span class="explore-price">efter avtal</span>
+										</span>
+										 <a href="#">SCA </a>
+									</p>
+									<div class="explore-person">
+										<div class="row">
+											<div class="col-sm-2">
+												<div class="explore-person-img">
+													<a href="#">
+														<img src="assets/images/explore/person.png" alt="explore person">
+													</a>
+												</div>
+											</div>
+											<div class="col-sm-10">
+												<p>
+													SCA söker talanger för en hållbar framtid! Upptäck utvecklingsmöjligheter inom skog, energi och logistik – ansök idag och gör skillnad!
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="explore-open-close-part">
+										<div class="row">
+											<div class="col-sm-5">
+												<button class="close-btn" onclick="window.location.href='#'">Besök</button>
+												
+											</div>
+											<div class="col-sm-7">
+												<div class="explore-map-icon">
+													<a href="#"><i data-feather="map-pin"></i></a>
+													<a href="#"><i data-feather="upload"></i></a>
+													<a href="#"><i data-feather="heart"></i></a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-6">
+							<div class="single-explore-item">
+								<div class="single-explore-img">
+									<img src="assets/images/explore/f6.png" alt="explore image">
+									<div class="single-explore-img-info">
+										<button onclick="window.location.href='#'">best rated</button>
+										<div class="single-explore-image-icon-box">
+											<ul>
+												<li>
+													<div class="single-explore-image-icon">
+														<i class="fa fa-arrows-alt"></i>
+													</div>
+												</li>
+												<li>
+													<div class="single-explore-image-icon">
+														<i class="fa fa-bookmark-o"></i>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="single-explore-txt bg-theme-5">
+									<h2><a href="#">automationstekniker</a></h2>
+									<p class="explore-rating-price">
+									
+										<a href="#"> 15 ratings</a> 
+										<span class="explore-price-box">
+											form
+											<span class="explore-price">behov</span>
+										</span>
+										 <a href="#">Hantverkare</a>
+									</p>
+									<div class="explore-person">
+										<div class="row">
+											<div class="col-sm-2">
+												<div class="explore-person-img">
+													<a href="#">
+														<img src="assets/images/explore/person.png" alt="explore person">
+													</a>
+												</div>
+											</div>
+											<div class="col-sm-10">
+												<p>
+													Som automationstekniker monterar, ställer in, reparerar och sköter du utrustning för automatisk
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="explore-open-close-part">
+										<div class="row">
+											<div class="col-sm-5">
+												<button class="close-btn" onclick="window.location.href='#'">Besök</button>
+												
+											</div>
+											<div class="col-sm-7">
+												<div class="explore-map-icon">
+													<a href="#"><i data-feather="map-pin"></i></a>
+													<a href="#"><i data-feather="upload"></i></a>
+													<a href="#"><i data-feather="heart"></i></a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!--/.container-->
+
+		</section><!--/.explore-->
+		<!--explore end -->
+
+		<!--reviews start -->
+		<section id="reviews" class="reviews">
+			<div class="section-header">
+				<h2>Matchade jobb</h2>
+				<p>Våra Användares Åsikter</p>
+			</div><!--/.section-header-->
+			<div class="reviews-content">
+				<div class="testimonial-carousel">
+				    <div class="single-testimonial-box">
+						<div class="testimonial-description">
+							<div class="testimonial-info">
+								<div class="testimonial-img">
+									<img src="assets/images/clients/c55.png" alt="clients">
+								</div><!--/.testimonial-img-->
+								<div class="testimonial-person">
+									<h2>Michel Dahl</h2>
+									<h4>Göteborg</h4>
+									<div class="testimonial-person-star">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+									</div>
+								</div><!--/.testimonial-person-->
+							</div><!--/.testimonial-info-->
+							<div class="testimonial-comment">
+								<p>
+									Java och CSS-utvecklare samt skapare av jobb.net, levererar innovativa och användarvänliga lösningar för att förenkla arbetsmarknaden och hjälpa företag att hitta rätt kompetens."
+								</p>
+							</div><!--/.testimonial-comment-->
+						</div><!--/.testimonial-description-->
+					</div><!--/.single-testimonial-box-->
+				    <div class="single-testimonial-box">
+						<div class="testimonial-description">
+							<div class="testimonial-info">
+								<div class="testimonial-img">
+									<img src="assets/images/clients/c2.png" alt="clients">
+								</div><!--/.testimonial-img-->
+								<div class="testimonial-person">
+									<h2>Erik Svensson</h2>
+									<h4>Malmö</h4>
+									<div class="testimonial-person-star">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+									</div>
+								</div><!--/.testimonial-person-->
+							</div><!--/.testimonial-info-->
+							<div class="testimonial-comment">
+								<p>
+									Jobb.net gjorde det enkelt att hitta rätt kandidater snabbt och effektivt!"
+								</p>
+							</div><!--/.testimonial-comment-->
+						</div><!--/.testimonial-description-->
+					</div><!--/.single-testimonial-box-->
+				    <div class="single-testimonial-box">
+						<div class="testimonial-description">
+							<div class="testimonial-info">
+								<div class="testimonial-img">
+									<img src="assets/images/clients/c3.png" alt="clients">
+								</div><!--/.testimonial-img-->
+								<div class="testimonial-person">
+									<h2>Ali Hossain</h2>
+									<h4>Lerum</h4>
+									<div class="testimonial-person-star">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+									</div>
+								</div><!--/.testimonial-person-->
+							</div><!--/.testimonial-info-->
+							<div class="testimonial-comment">
+								<p>
+									Fantastiskt att den kunde hitta jobb genom att läsa av mitt CV 
+								</p>
+							</div><!--/.testimonial-comment-->
+						</div><!--/.testimonial-description-->
+					</div><!--/.single-testimonial-box-->
+				    <div class="single-testimonial-box">
+						<div class="testimonial-description">
+							<div class="testimonial-info">
+								<div class="testimonial-img">
+									<img src="assets/images/clients/c4.png" alt="clients">
+								</div><!--/.testimonial-img-->
+								<div class="testimonial-person">
+									<h2>jakob hedman</h2>
+									<h4>Stockholm</h4>
+									<div class="testimonial-person-star">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+									</div>
+								</div><!--/.testimonial-person-->
+							</div><!--/.testimonial-info-->
+							<div class="testimonial-comment">
+								<p>
+									fick en fantastisk ny utbildning och nytt jobb 
+								</p>
+							</div><!--/.testimonial-comment-->
+						</div><!--/.testimonial-description-->
+					</div><!--/.single-testimonial-box-->
+				    <div class="single-testimonial-box">
+						<div class="testimonial-description">
+							<div class="testimonial-info">
+								<div class="testimonial-img">
+									<img src="assets/images/clients/c1.png" alt="clients">
+								</div><!--/.testimonial-img-->
+								<div class="testimonial-person">
+									<h2>Oliver Williamsson </h2>
+									<h4>Alingsås</h4>
+									<div class="testimonial-person-star">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+									</div>
+								</div><!--/.testimonial-person-->
+							</div><!--/.testimonial-info-->
+							<div class="testimonial-comment">
+								<p>
+									Enkel hemsida att navigera och lätt att hitta rätt.
+								</p>
+							</div><!--/.testimonial-comment-->
+						</div><!--/.testimonial-description-->
+					</div><!--/.single-testimonial-box-->
+				    <div class="single-testimonial-box">
+						<div class="testimonial-description">
+							<div class="testimonial-info">
+								<div class="testimonial-img">
+									<img src="assets/images/clients/c2.png" alt="clients">
+								</div><!--/.testimonial-img-->
+								<div class="testimonial-person">
+									<h2>monirul islam</h2>
+									<h4>Göteborg</h4>
+									<div class="testimonial-person-star">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+									</div>
+								</div><!--/.testimonial-person-->
+							</div><!--/.testimonial-info-->
+							<div class="testimonial-comment">
+								<p>
+									Jobb.net gjorde det enkelt att hitta rätt kandidater snabbt och effektivt!
+								</p>
+							</div><!--/.testimonial-comment-->
+						</div><!--/.testimonial-description-->
+					</div><!--/.single-testimonial-box-->
+				    <div class="single-testimonial-box">
+						<div class="testimonial-description">
+							<div class="testimonial-info">
+								<div class="testimonial-img">
+									<img src="assets/images/clients/c3.png" alt="clients">
+								</div><!--/.testimonial-img-->
+								<div class="testimonial-person">
+									<h2>Shohrab Hossain</h2>
+									<h4>Uppsala </h4>
+									<div class="testimonial-person-star">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+									</div>
+								</div><!--/.testimonial-person-->
+							</div><!--/.testimonial-info-->
+							<div class="testimonial-comment">
+								<p>
+									Lätt att navigera och bra matchningar med arbetsgivare
+								</p>
+							</div><!--/.testimonial-comment-->
+						</div><!--/.testimonial-description-->
+					</div><!--/.single-testimonial-box-->
+				    <div class="single-testimonial-box">
+						<div class="testimonial-description">
+							<div class="testimonial-info">
+								<div class="testimonial-img">
+									<img src="assets/images/clients/c4.png" alt="clients">
+								</div><!--/.testimonial-img-->
+								<div class="testimonial-person">
+									<h2>Tom Eriksson</h2>
+									<h4>Västerås </h4>
+									<div class="testimonial-person-star">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+									</div>
+								</div><!--/.testimonial-person-->
+							</div><!--/.testimonial-info-->
+							<div class="testimonial-comment">
+								<p>
+									Perfekt för att snabbt hitta jobb, mycket användarvänlig!
+								</p>
+							</div><!--/.testimonial-comment-->
+						</div><!--/.testimonial-description-->
+					</div><!--/.single-testimonial-box-->
+				</div>
+			</div>
+
+		</section><!--/.reviews-->
+		<!--reviews end -->
+
+		<!-- statistics strat -->
+		<section id="statistics"  class="statistics">
+			<div class="container">
+				<div class="statistics-counter"> 
+					<div class="col-md-3 col-sm-6">
+						<div class="single-ststistics-box">
+							<div class="statistics-content">
+								<div class="counter">3200 </div> <span>+</span>
+							</div><!--/.statistics-content-->
+							<h3>Arbetssökande </h3>
+						</div><!--/.single-ststistics-box-->
+					</div><!--/.col-->
+					<div class="col-md-3 col-sm-6">
+						<div class="single-ststistics-box">
+							<div class="statistics-content">
+								<div class="counter">1200</div> <span>+</span>
+							</div><!--/.statistics-content-->
+							<h3>lediga jobb</h3>
+						</div><!--/.single-ststistics-box-->
+					</div><!--/.col-->
+					<div class="col-md-3 col-sm-6">
+						<div class="single-ststistics-box">
+							<div class="statistics-content">
+								<div class="counter">65</div> <span>+</span>
+							</div><!--/.statistics-content-->
+							<h3>utbildningar</h3>
+						</div><!--/.single-ststistics-box-->
+					</div><!--/.col-->
+					<div class="col-md-3 col-sm-6">
+						<div class="single-ststistics-box">
+							<div class="statistics-content">
+								<div class="counter">2230</div> <span>+</span>
+							</div><!--/.statistics-content-->
+							<h3>jobb matchade</h3>
+						</div><!--/.single-ststistics-box-->
+					</div><!--/.col-->
+				</div><!--/.statistics-counter-->	
+			</div><!--/.container-->
+
+		</section><!--/.counter-->	
+		<!-- statistics end -->
+
+		<!--Arbetsmässor och Utbildningar -->
+		<section id="blog" class="blog" >
+			<div class="container">
+				<div class="section-header">
+					<h2>Arbetsmässor och Utbildningar</h2>
+					<p>Upptäck relevanta mässor och utbildningar nära dig, skräddarsydda efter ditt CV och dina intressen. </p>
+				</div><!--/.section-header-->
+				<div class="blog-content">
+					<div class="row">
+						<div class="col-md-4 col-sm-6">
+							<div class="single-blog-item">
+								<div class="single-blog-item-img">
+									<img src="assets/images/blog/bl1.png" alt="blog image">
+								</div>
+								<div class="single-blog-item-txt">
+									<h2><a href="#">Java utbildning</a></h2>
+									<h4> <span>av</span> <a href="#">IT-Högskolan</a> Mars 2024</h4>
+									<p>
+										För att du ska kunna tillgodogöra dig utbildningen och fungera i yrkesrollen kommer en arbetsförmedlare beakta nedan förutsättningar
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-6">
+							<div class="single-blog-item">
+								<div class="single-blog-item-img">
+									<img src="assets/images/blog/bl22.png" alt="blog image">
+								</div>
+								<div class="single-blog-item-txt">
+									<h2><a href="#">IT Påbyggnad/Test och kartläggning</a></h2>
+									<h4> <span>av</span> <a href="#">Lexicon AB</a> Jan 2025</h4>
+									<p>
+										Innan IT-påbyggnadsutbildningen måste du genomgå en testmodul för att kartlägga IT- och engelskakunskaper samt lämplighet för utbildningen.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-6">
+							<div class="single-blog-item">
+								<div class="single-blog-item-img">
+									<img src="assets/images/blog/bl3.png" alt="blog image">
+								</div>
+								<div class="single-blog-item-txt">
+									<h2><a href="#">Jobb Festivalen 2025</a></h2>
+									<h4> <span>av</span> <a href="#">Mats Wernheim</a>20 maj 2025</h4>
+									<p>
+										Välkommen till Jobbfestivalen med tema "Mångfald & Inkludering" 20 maj 2025 i Kungsträdgården, Stockholm
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!--/.container-->
+			
+		</section><!--/.blog-->
+		<!--blog end -->
+
+		<!--subscription strat -->
+<section id="contact" class="subscription">
+    <div class="container">
+        <div class="subscribe-title text-center">
+            <h2>Kontakta oss!</h2>
+            <p>
+                Jobb.net erbjuder dig möjligheten att lista ditt företag hos oss, vilket gör att vi kan marknadsföra ditt företag på ett effektivt sätt.
+            </p>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="subscription-input-group">
+                    <form action="#">
+                        <input type="email" class="subscription-input-form" placeholder="Epost">
+                        <button type="button" class="appsLand-btn subscribe-btn" onclick="showPopup()">
+                            Skicka
+                        </button>
+                    </form>
+                </div>
+            </div>	
+        </div>
+    </div>
+</section><!--/subscription end-->
+
+<!-- Popup window -->
+<div id="popupMessage" class="popup-overlay" style="display:none;">
+    <div class="popup-content">
+        <p>Tack för att ni valde Jobb.net! Vi återkommer inom 24 timmar.</p>
+        <button onclick="closePopup()">Stäng</button>
+    </div>
+</div>
+
+<!-- CSS för popup -->
+<style>
+    .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .popup-content {
+        background: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+    }
+</style>
+
+<!-- JavaScript för att visa och dölja popup -->
+<script>
+    function showPopup() {
+        document.getElementById("popupMessage").style.display = "flex";
+    }
+    function closePopup() {
+        document.getElementById("popupMessage").style.display = "none";
+    }
+</script>
+
+
+		<!--footer start-->
+		<footer id="footer"  class="footer">
+			<div class="container">
+				<div class="footer-menu">
+		           	<div class="row">
+			           	<div class="col-sm-3">
+			           		 <div class="navbar-header">
+				                <a class="navbar-brand" href="home.html">Jobb<span>.net</span></a>
+				            </div><!--/.navbar-header-->
+			           	</div>
+			           	<div class="col-sm-9">
+			           		<ul class="footer-menu-item">
+			                    <li class="scroll"><a href="#works">Hem</a></li>
+			                    <li class="scroll"><a href="#explore">Utforska</a></li>
+			                    <li class="scroll"><a href="#reviews">kundomdöme</a></li>
+			                    <li class="scroll"><a href="#blog">blog</a></li>
+			                    <li class="scroll"><a href="#contact">Kontakt</a></li>
+			                    <li class=" scroll"><a href="#contact">Mitt konto</a></li>
+			                </ul><!--/.nav -->
+			           	</div>
+		           </div>
+				</div>
+				<div class="hm-footer-copyright">
+					<div class="row">
+						<div class="col-sm-5">
+							<p>
+								 <a href="https://www.linkedin.com/in/michel-dahl-203832318/">&copy;copyright. designed and developed by Michel D</a>
+							</p><!--/p-->
+						</div>
+						<div class="col-sm-7">
+							<div class="footer-social">
+								<span><i class="fa fa-phone"> + 46 793 499 229</i></span>
+								<a href=""><i class="fa fa-facebook"></i></a>	
+								<a href=""><i class="fa fa-twitter"></i></a>
+								<a href="https://www.linkedin.com/in/michel-dahl-203832318/" target="_blank"><i class="fa fa-linkedin"></i></a>
+								<a href="https://www.google.se" target="_blank"><i class="fa fa-google-plus"></i></a>
+							</div>
+						</div>
+					</div>
+					
+				</div><!--/.hm-footer-copyright-->
+			</div><!--/.container-->
+
+			<div id="scroll-Top">
+				<div class="return-to-top">
+					<i class="fa fa-angle-up " id="scroll-top" data-toggle="tooltip" data-placement="top" title="" data-original-title="Back to Top" aria-hidden="true"></i>
+				</div>
+				
+			</div><!--/.scroll-Top-->
+			
+        </footer><!--/.footer-->
+		<!--footer end-->
+		
+		<!-- Include all js compiled plugins (below), or include individual files as needed -->
+
+		<script src="assets/js/jquery.js"></script>
+        
+        <!--modernizr.min.js-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+		
+		<!--bootstrap.min.js-->
+        <script src="assets/js/bootstrap.min.js"></script>
+		
+		<!-- bootsnav js -->
+		<script src="assets/js/bootsnav.js"></script>
+
+        <!--feather.min.js-->
+        <script  src="assets/js/feather.min.js"></script>
+
+        <!-- counter js -->
+		<script src="assets/js/jquery.counterup.min.js"></script>
+		<script src="assets/js/waypoints.min.js"></script>
+
+        <!--slick.min.js-->
+        <script src="assets/js/slick.min.js"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+		     
+        <!--Custom JS-->
+        <script src="assets/js/custom.js"></script>
+        
+    </body>
+	
+</html>
