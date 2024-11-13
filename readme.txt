@@ -17,3 +17,10 @@ Website: 	jobb.net
 Version 1.0 21-05-2018
 - initial release 
 
+
+
+
+
+-----------------------
+    Öppna Home.HTML 
+-----------------------
